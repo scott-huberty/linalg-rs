@@ -2,7 +2,7 @@ use nalgebra::DVector;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
 
-    // First the dot product the manual way
+    // First the dot product the (almost) manual way
     let v1 = vec![1, 2, 3, 4, 5];
     let v2 = vec![0, -4, -3, 6, 5];
     let v3_manual = vec![
