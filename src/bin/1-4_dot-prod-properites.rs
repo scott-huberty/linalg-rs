@@ -1,7 +1,6 @@
 use rand::Rng;
 use nalgebra::DVector;
 
-
 fn main() 
     -> Result<(), Box<dyn std::error::Error>> {
     const N: usize = 5;
@@ -28,11 +27,13 @@ fn main()
     // Associative property
     // a.(b.c) != (a.b).c
     // This example is a little hacky because the dot product is undefined for a scalar and a vector
+    // and e.g. b.dot(c) returns a scalar so really we can't a.(b.c)
     // but in order to demonstrate that the associative property does not hold, we'll broadcast the scalar to a vector
+    // in order to make the dot product defined
     
     let bc = b.dot(&c);
     // bc is a scalar and We need to broadcast it to a vector of the same size as a for the dot product to be defined
-    let bc_broadcasted = DVector::from_vec(vec![bc; N]); // e.g. [bc, bc, bc, bc, bc, bc, bc, bc, bc, bc]
+    let bc_broadcasted = DVector::from_vec(vec![bc; N]); // e.g. [bc, bc, bc, bc, bc]
     let res3 = a.dot(&bc_broadcasted);
 
     let ab = a.dot(&b); // ab is a scalar
