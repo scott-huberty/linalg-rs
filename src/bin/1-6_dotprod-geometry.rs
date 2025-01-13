@@ -11,7 +11,7 @@ fn main() {
     let dp_a = v1.dot(&v2);
 
     // geometric
-    // the angle between the two vectors scaled by the product of the lengths of the vectors
+    // i.e. the angle between two vectors scaled by the product of the lengths of those vectors
     // |v1| * |v2| * cos(theta)
     let dp_g = v1.norm() * v2.norm() * v1.angle(&v2).cos();
     println!("Dot product (algebraic): {}", dp_a);
